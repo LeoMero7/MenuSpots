@@ -7,6 +7,10 @@ on:
 jobs:
   build:
     runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: ./menuspot-ios
+
     steps:
       - uses: actions/checkout@v4
 
@@ -49,5 +53,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: MenuSpot-IPA
-          path: ios/App/MenuSpot.ipa
+          path: menuspot-ios/ios/App/MenuSpot.ipa
           retention-days: 7
