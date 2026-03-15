@@ -1,0 +1,66 @@
+/* ═══════════════════════════════════════════════
+   iOS NATIVE PATCHES — injected by ios-patches.css
+   ═══════════════════════════════════════════════ */
+
+/* Prevent rubber-band scroll on the shell */
+html, body {
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Safe area: top bar respects Dynamic Island / notch */
+.topbar {
+  padding-top: calc(12px + env(safe-area-inset-top)) !important;
+}
+
+/* Safe area: bottom nav stays above home indicator */
+.bnav {
+  padding-bottom: max(14px, env(safe-area-inset-bottom)) !important;
+}
+
+/* Sidebar: top padding for notch on landscape */
+.sidebar {
+  padding-top: env(safe-area-inset-top);
+}
+
+/* Prevent text zoom on input focus (iOS Safari bug) */
+input, select, textarea {
+  font-size: 16px !important;
+}
+
+/* Smooth native-feel scrolling on all scroll areas */
+.scroll-area, .rstrip, .pills, .mpicker-body {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Remove grey flash on tap (already in index.html but double-safe) */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* iOS: make buttons look native, not browser-styled */
+button {
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+/* Toast: sits above bottom home indicator */
+.toast {
+  bottom: calc(80px + env(safe-area-inset-bottom)) !important;
+}
+
+/* Fix lightbox on iPhoneX+ — don't clip under notch */
+.lbox {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Delivery panel bottom clearance */
+.dlv-panel {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Calc panel bottom clearance */
+.calc-panel {
+  padding-bottom: env(safe-area-inset-bottom);
+}
