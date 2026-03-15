@@ -34,10 +34,19 @@ jobs:
       - name: Sync Capacitor
         run: npx cap sync ios
 
+      - name: Install CocoaPods
+        run: sudo gem install cocoapods
+
+      - name: Pod Install
+        working-directory: ./menuspot-ios/ios/App
+        run: pod install
+
       - name: Build unsigned IPA
+        working-directory: ./menuspot-ios/ios/App
         run: |
-          cd ios/App
-          xcodebuild -scheme App \
+          xcodebuild \
+            -workspace App.xcworkspace \
+            -scheme App \
             -sdk iphoneos \
             -configuration Debug \
             CODE_SIGN_IDENTITY="" \
